@@ -199,7 +199,7 @@ void Program::run()
 
 				if (scanner.hasMoreTokens()) error("SYNTAX ERROR");
 
-				stringstream sst(start);
+				stringstream sst(ss);
 				int num;
 				sst >> num;
 				if (list[num].empty()) error("LINE NUMBER ERROR");
