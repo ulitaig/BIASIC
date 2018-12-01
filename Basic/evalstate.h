@@ -88,13 +88,15 @@ private:
 		cout << " ? ";
 		string s;
 		getline(cin, s);
-		int r = 0, st = 0;
+		int r = 0, st = 0, f = 1;
 		for (int i = 0; i < s.length(); i++)
 		{
 			if (st == 0)
 			{
 				if (s[i] == ' ') continue;
 				if (s[i] >= '0'&&s[i] <= '9') { r = r * 10 + s[i] - '0'; st = 1; }
+				else if (f == 1 && s[i] == '-') { f = -1; st = 1; }
+				else if (f == 1 && s[i] == '+') { f = 1; st = 1; }
 				else
 				{
 					puts("INVALID NUMBER");
@@ -120,7 +122,7 @@ private:
 				}
 			}
 		}
-		setValue(var, r);
+		setValue(var, r*f);
 		return true;
 	}
 
